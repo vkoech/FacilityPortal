@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="card">
+    <div class="row justify-content-center align-items-center">
+      <div class="col col-sm-12 align-self-center">
+        <form class="form-horizontal" [formGroup]="ticketsService.formModel">
+          <div class="p mt-5 ml-3">
+            <p>(Fields marked * are required)</p>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group col-sm-12">
+                    <label for="no">No*</label>
+                    <input type="text" id="no" formControlName="No" class="form-control" maxlength="191">
+                  </div><!--form-group-->
+                </div><!--col-->
+              </div><!--row-->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group col-sm-12">
+                    <label for="property_code">Property Code*</label>:
+                    <select class="form-control" id="property_code" formControlName="propertyCode">
+                      <option value="undefined" [selected]=true>Select Property Code</option>
+                      <option>22333</option>
+                      <option>334445</option>
+                    </select>
+                  </div><!--form-group-->
+                </div><!--col-->
+              </div><!--row-->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group col-sm-12">
+                    <label for="floor">Floor*</label>:
+                    <select class="form-control" id="floor" formControlName="floor">
+                      <option value="undefined" [selected]=true>Select Floor</option>
+                      <option>1</option>
+                      <option>2</option>
+                    </select>
+                  </div><!--form-group-->
+                </div><!--col-->
+              </div><!--row-->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group col-sm-12">
+                    <label for="area_code">Area Code*</label>:
+                    <select class="form-control" id="area_code" formControlName="areaCode">
+                      <option value="undefined" [selected]=true>Select Area Code</option>
+                      <option>13425</option>
+                      <option>23214</option>
+                    </select>
+                  </div><!--form-group-->
+                </div><!--col-->
+              </div><!--row-->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group col-sm-12">
+                    <label for="status">Status*</label>:
+                    <select class="form-control" id="status" formControlName="Status">
+                      <option value="undefined" [selected]=true>Select Status</option>
+                      <option>werty</option>
+                      <option>sggahgha</option>
+                    </select>
+                  </div><!--form-group-->
+                </div><!--col-->
+              </div><!--row-->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group col-sm-12">
+                    <label for="description">Description*:</label>
+                    <textarea class="textarea form-control " formControlName="Description" cols="90" rows="20" id="description" maxlength="150" ></textarea>
+                  </div><!--form-group-->
+                </div><!--col-->
+              </div><!--row-->
+            </div>
+            <div class="col-sm-6">
+              <img src="assets/img/facilityLogo.jpeg" style=" border-radius: 10%;width:70%;height: 70%; margin: 10px">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group col-sm-12 mb-0 clearfix">
+                <hr>
+                <button class="btn btn-primary pull-right" type="submit"><i class="fas fa-save"></i>Submit</button>
+                <!--                <a [routerLink]="['/addFamily']" class="btn btn-outline-primary">Next <i class="fas fa-caret-right"></i></a>-->
+              </div><!--form-group-->
+            </div><!--col-->
+          </div><!--row-->
+        </form>
+      </div><!--card body-->
+    </div><!-- card -->
+  </div><!-- col-xs-12 -->
+</div><!-- row -->

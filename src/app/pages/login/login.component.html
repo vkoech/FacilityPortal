@@ -1,0 +1,48 @@
+<router-outlet></router-outlet>
+<div class="login-container">
+  <div class="row">
+    <div class="jumbotron">
+      <div class="auth-form-lights">
+        <div class="brand-logo">
+          <img src="assets/img/loginImg.jpeg" alt="logo">
+        </div>
+        <!-- <h6 class="font-weight-bolder p-2">Sign in to continue.</h6> -->
+        <form [formGroup]="serviceLogin.formModel"(submit)="onSubmit()">
+          <div class="form-group">
+            <label for="studentNo">Student Number </label>
+            <input formControlName="StudentNo" id="studentNo" type="text" class="form-control">
+            <div *ngIf="f.StudentNo.touched && f.StudentNo.invalid" class=" text-danger">
+              <div *ngIf="f.StudentNo.errors?.required">StudentNo is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Password">Password</label>
+            <input
+              formControlName="Password" id="Password" type="Password" class="form-control">
+            <div *ngIf="f.Password.touched && f.Password.invalid" class="text-danger">
+              <div *ngIf="f.Password.errors?.required">Password is required.</div>
+            </div>
+          </div>
+          <div >
+            <button type="submit" class="btn btn-primary btn-block btn-lg " [disabled]="!serviceLogin.formModel.valid">LogIn</button>
+          </div>
+          <div class="row m-10">
+            <div class="col-6">
+              <a href="/register">
+                First Time Register here
+              </a>
+            </div>
+            <div class="col-6">
+              <a  class="text-danger" href="/resetUserPassword">
+                Forgot password ?
+              </a>
+            </div>
+            <!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+              <p style="color: black">Please Wait. </p>
+            </ngx-spinner> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
