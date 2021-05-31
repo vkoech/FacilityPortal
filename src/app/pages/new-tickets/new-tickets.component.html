@@ -2,7 +2,7 @@
   <div class="card">
     <div class="row justify-content-center align-items-center">
       <div class="col col-sm-12 align-self-center">
-        <form class="form-horizontal" [formGroup]="ticketsService.formModel">
+        <form class="form-horizontal" [formGroup]="ticketsService.formModel" (submit)="onSubmit()">
           <div class="p mt-5 ml-3">
             <p>(Fields marked * are required)</p>
           </div>
@@ -12,7 +12,7 @@
                 <div class="col">
                   <div class="form-group col-sm-12">
                     <label for="no">No*</label>
-                    <input type="text" id="no" formControlName="No" class="form-control" maxlength="191">
+                    <input type="text" id="no" formControlName="TenantNo" class="form-control">
                   </div><!--form-group-->
                 </div><!--col-->
               </div><!--row-->
@@ -20,10 +20,10 @@
                 <div class="col">
                   <div class="form-group col-sm-12">
                     <label for="property_code">Property Code*</label>:
-                    <select class="form-control" id="property_code" formControlName="propertyCode">
+                    <select class="form-control" id="property_code" formControlName="PropertyNo" (change)="getSelectedFloor($any($event.target).value)">
                       <option value="undefined" [selected]=true>Select Property Code</option>
-                      <option>22333</option>
-                      <option>334445</option>
+                      <option *ngFor="let proCode of ticketsService.propertyCode" [value]="proCode.No">
+                        {{proCode.Description}}
                     </select>
                   </div><!--form-group-->
                 </div><!--col-->
@@ -31,11 +31,11 @@
               <div class="row">
                 <div class="col">
                   <div class="form-group col-sm-12">
-                    <label for="floor">Floor*</label>:
-                    <select class="form-control" id="floor" formControlName="floor">
+                    <label for="floor">Floor No*</label>:
+                    <select class="form-control" id="floor" formControlName="FloorNo" (change)="getSelectedUnit($any($event.target).value)">
                       <option value="undefined" [selected]=true>Select Floor</option>
-                      <option>1</option>
-                      <option>2</option>
+                      <option *ngFor="let floors of ticketsService.floorNo" [value]="floors.FloorCode">
+                        {{floors.FloorCode}}
                     </select>
                   </div><!--form-group-->
                 </div><!--col-->
@@ -43,11 +43,23 @@
               <div class="row">
                 <div class="col">
                   <div class="form-group col-sm-12">
-                    <label for="area_code">Area Code*</label>:
-                    <select class="form-control" id="area_code" formControlName="areaCode">
-                      <option value="undefined" [selected]=true>Select Area Code</option>
-                      <option>13425</option>
-                      <option>23214</option>
+                    <label for="area_code">Unit No *</label>:
+                    <select class="form-control" id="area_code" formControlName="UnitNo">
+                      <option value="undefined" [selected]=true>Select Unit No</option>
+                      <option *ngFor="let units of ticketsService.floorUnits" [value]="units.UnitCode">
+                        {{units.UnitCode}}
+                    </select>
+                  </div><!--form-group-->
+                </div><!--col-->
+              </div><!--row-->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group col-sm-12">
+                    <label for="category">Categories  *</label>:
+                    <select class="form-control" id="category" formControlName="Category">
+                      <option value="undefined" [selected]=true>Select Categories </option>
+                      <option *ngFor="let cat of ticketsService.categoryCodes" [value]="cat.CategoryCode">
+                        {{cat.Description}}
                     </select>
                   </div><!--form-group-->
                 </div><!--col-->
@@ -56,10 +68,11 @@
                 <div class="col">
                   <div class="form-group col-sm-12">
                     <label for="status">Status*</label>:
-                    <select class="form-control" id="status" formControlName="Status">
+                    <select class="form-control" id="status" formControlName="RequestStatus">
                       <option value="undefined" [selected]=true>Select Status</option>
-                      <option>werty</option>
-                      <option>sggahgha</option>
+                      <option>Normal</option>
+                      <option>Routine</option>
+                      <option>Urgent/Critical</option>
                     </select>
                   </div><!--form-group-->
                 </div><!--col-->
@@ -68,13 +81,13 @@
                 <div class="col">
                   <div class="form-group col-sm-12">
                     <label for="description">Description*:</label>
-                    <textarea class="textarea form-control " formControlName="Description" cols="90" rows="20" id="description" maxlength="150" ></textarea>
+                    <textarea class="textarea form-control " formControlName="DescriptionOfMaintenace" cols="90" rows="20" id="description" maxlength="150" ></textarea>
                   </div><!--form-group-->
                 </div><!--col-->
               </div><!--row-->
             </div>
             <div class="col-sm-6">
-              <img src="assets/img/facilityLogo.jpeg" style=" border-radius: 10%;width:70%;height: 70%; margin: 10px">
+              <img src="assets/img/facilityLogo.jpeg" style=" border-radius: 10%;width:80%;height: 70%; margin: 10px">
             </div>
           </div>
           <div class="row">
