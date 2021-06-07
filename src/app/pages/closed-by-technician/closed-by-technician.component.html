@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col">
+            Closed Ticket By Technicians
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-secondary">
+            <th>
+              No
+            </th>
+            <th>
+              VendorNo
+            </th>
+            <th>
+              Vendor Name
+            </th>
+            <th>
+              Property Code
+            </th>
+            <th>
+              Description
+            </th>
+            <th>
+              Floor
+            </th>
+            <th>
+              Unit Number
+            </th>
+            <th>
+              Category
+            </th>
+            <th>
+              Request Status
+            </th>
+            <th>
+              Maintenance Description
+            </th>
+            <th>
+              Technician Comments
+            </th>
+            <th>
+              Status
+            </th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tickets of closedByTechService.closedByTech">
+              <td>{{tickets.No}}</td>
+              <td>{{tickets.VendorNo}}</td>
+              <td>{{tickets.VendorName}}</td>
+              <td>{{tickets.PropertyNo}}</td>
+              <td>{{tickets.PropertyDescription}}</td>
+              <td>{{tickets.FloorNo}}</td>
+              <td>{{tickets.UnitNo}}</td>
+              <td>{{tickets.Category}}</td>
+              <td>{{tickets.RequestStatus}}</td>
+              <td>{{tickets.DescriptionOfMaintenace}}</td>
+              <td>{{tickets.TechnicianComments}}</td>
+              <td>{{tickets.Status}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

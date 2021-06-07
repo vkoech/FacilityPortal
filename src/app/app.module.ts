@@ -18,9 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CodeCaptureComponent } from './pages/code-capture/code-capture.component';
 import {RecaptchaFormsModule, RecaptchaModule} from 'ng-recaptcha';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { RaisedTicketsComponent } from './pages/raised-tickets/raised-tickets.component';
-import { NewTicketsComponent } from './pages/new-tickets/new-tickets.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { ClosedByTechnicianComponent } from './pages/closed-by-technician/closed-by-technician.component';
+import {AssignedTicketsComponent} from './pages/assigned-tickets/assigned-tickets.component';
 
 
 
@@ -30,9 +29,8 @@ import { RegisterComponent } from './pages/register/register.component';
     AdminLayoutComponent,
     LoginComponent,
     CodeCaptureComponent,
-    RaisedTicketsComponent,
-    NewTicketsComponent,
-    RegisterComponent,
+    ClosedByTechnicianComponent,
+    AssignedTicketsComponent
   ],
   imports: [
     BrowserAnimationsModule,

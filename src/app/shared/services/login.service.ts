@@ -7,10 +7,10 @@ import {HttpClient} from '@angular/common/http'
 })
 export class LoginService {
 
-  readonly baseUrl = 'http://173.249.23.236/pbc-studentapi/api/student/' ;
+  readonly baseUrl = 'https://regent.angazake.com/facility-moduleapi/api/maintenance/' ;
 
   formModel = this.fb.group({
-      StudentNo: ['', Validators.required],
+      TechnicianNo: ['', Validators.required],
       Password: ['', Validators.required],
     }
   );
@@ -21,9 +21,9 @@ export class LoginService {
 // tslint:disable-next-line:typedef
   login() {
     const body = {
-      StudentNo: this.formModel.value.StudentNo,
+      TechnicianNo: this.formModel.value.TechnicianNo,
       Password: this.formModel.value.Password,
     };
-    return this.http.post(this.baseUrl + '/login', body);
+    return this.http.post(this.baseUrl + '/loginTechnician', body);
   }
 }

@@ -11,16 +11,16 @@ import {NgxSpinnerService} from 'ngx-spinner';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private toastr: ToastrService, public serviceLogin: LoginService, private router: Router,  private SpinnerService: NgxSpinnerService) { }
+  constructor(private toastr: ToastrService, public serviceLogin: LoginService, private router: Router,
+              private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
   }
   get f() {  return this.serviceLogin.formModel?.controls; }
   // tslint:disable-next-line:typedef
   onSubmit() {
-    console.log(this.serviceLogin.formModel.value);
     this.SpinnerService.show();
-    localStorage.setItem('studentNo', this.serviceLogin.formModel.value.StudentNo);
+    localStorage.setItem('techNo', this.serviceLogin.formModel.value.TechnicianNo);
     this.serviceLogin.login().subscribe(
       (res: any) => {
         if (res.responseCode) {
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
           // this.responseCode = true;
           this.toastr.success(res.responseDescription, 'Login Successful');
           this.SpinnerService.hide();
-          this.router.navigate(['tickets']);
+          this.router.navigate(['assignedTickets']);
         } else {
           this.toastr.error( res.responseDescription, 'Login Failed!!!');
           this.SpinnerService.hide();

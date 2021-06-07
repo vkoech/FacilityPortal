@@ -21,7 +21,7 @@ export class NewTicketsService {
 
 
   formModel = this.fb.group({
-      TenantNo: ['', Validators.required],
+    TenantNo: ['', Validators.required],
     PropertyNo: ['', Validators.required],
     FloorNo: ['', Validators.required],
     UnitNo: ['', Validators.required],

@@ -9,10 +9,10 @@
         <!-- <h6 class="font-weight-bolder p-2">Sign in to continue.</h6> -->
         <form [formGroup]="serviceLogin.formModel"(submit)="onSubmit()">
           <div class="form-group">
-            <label for="studentNo">Student Number </label>
-            <input formControlName="StudentNo" id="studentNo" type="text" class="form-control">
-            <div *ngIf="f.StudentNo.touched && f.StudentNo.invalid" class=" text-danger">
-              <div *ngIf="f.StudentNo.errors?.required">StudentNo is required.</div>
+            <label for="tech_no"> Technician Number</label>
+            <input formControlName="TechnicianNo" id="tech_no" type="text" class="form-control">
+            <div *ngIf="f.TechnicianNo.touched && f.TechnicianNo.invalid" class=" text-danger">
+              <div *ngIf="f.TechnicianNo.errors?.required">Technician No is required.</div>
             </div>
           </div>
           <div class="form-group">
@@ -28,18 +28,12 @@
           </div>
           <div class="row m-10">
             <div class="col-6">
-              <a href="/register">
-                First Time Register here
-              </a>
             </div>
             <div class="col-6">
               <a  class="text-danger" href="/resetUserPassword">
                 Forgot password ?
               </a>
             </div>
-            <!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
-              <p style="color: black">Please Wait. </p>
-            </ngx-spinner> -->
           </div>
         </form>
       </div>

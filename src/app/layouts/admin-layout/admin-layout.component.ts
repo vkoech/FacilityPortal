@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,5 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  ngOnInit() { }
+  constructor(private router: Router, private spinner: NgxSpinnerService) {}
+  ngOnInit() {
+    if (localStorage.getItem('techNo') == null)  {
+      this.router.navigate(['/login']);
+    }
+  }
 }

@@ -12,6 +12,7 @@ import { Location} from '@angular/common';
 
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
+    public tenantNo: any;
     location: Location;
     private nativeElement: Node;
     private toggleButton;
@@ -33,6 +34,7 @@ export class NavbarComponent implements OnInit {
         this.router.events.subscribe((event) => {
           this.sidebarClose();
        });
+      this.tenantNo = localStorage.getItem('tenantNo');
     }
     getTitle() {
       let titlee = this.location.prepareExternalUrl(this.location.path());
@@ -92,5 +94,8 @@ export class NavbarComponent implements OnInit {
         }
 
       }
-
+  logout() {
+    localStorage.removeItem('techNo');
+    this.router.navigate(['/login']);
+  };
 }
